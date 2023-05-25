@@ -13,8 +13,7 @@
   ],
   "scripts": {
     "clean": "npx rimraf ./lib",
-    "build": "npm run clean && tsc && rollup -c",
-    "prepublish": "npm run build"
+    "build": "npm run clean && tsc && rollup -c"
   },
   "keywords": [
     "react",
