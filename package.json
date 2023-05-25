@@ -4,7 +4,7 @@
   "contributors": [
     "Winston Co <winstonco@live.com>"
   ],
-  "description": "Hooks of Random ShitE.",
+  "description": "Hooks of Random Sh*tE.",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/types/index.d.ts",
