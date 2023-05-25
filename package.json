@@ -1,25 +1,34 @@
 {
-  "name": "@winstonco/hooks-n-gadgets",
-  "version": "0.0.0",
-  "author": "Winston Co <winstonco@live.com>",
-  "description": "A toolbox of React hooks for various things you might need when building a website.",
-  "main": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "name": "@winstonco/horse",
+  "version": "0.0.1",
+  "contributors": [
+    "Winston Co <winstonco@live.com>"
+  ],
+  "description": "Hooks of Random ShitE.",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
   "files": [
-    "dist/**/*"
+    "lib/**/*"
   ],
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "build": "npm run clean && tsc",
-    "prepack": "npm run build"
+    "clean": "npx rimraf ./lib",
+    "build": "npm run clean && tsc && rollup -c",
+    "prepublish": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "hooks"
+  ],
   "license": "MIT",
   "dependencies": {
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.4",
-    "@types/react": "^18.2.7"
+    "@rollup/plugin-typescript": "^11.1.1",
+    "@types/react": "^18.2.7",
+    "rollup": "^3.23.0",
+    "tslib": "^2.5.2",
+    "typescript": "^5.0.4"
   }
 }

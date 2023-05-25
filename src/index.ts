@@ -1,3 +1,1 @@
-import useStopwatch from './components/stopwatch';
-
-export { useStopwatch };
+export { useStopwatch } from './stopwatch';

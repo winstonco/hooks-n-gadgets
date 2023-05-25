@@ -1,19 +1,18 @@
 {
   "compilerOptions": {
     "module": "ESNext",
-    "target": "ES2022",
+    "target": "ES6",
     "lib": ["ES2022", "DOM"],
     "allowJs": true,
     "checkJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    "declarationDir": "./dist/types",
-    "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "declarationDir": "./lib/types",
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
@@ -23,6 +22,5 @@
     "strictNullChecks": true,
     "noUnusedLocals": true
   },
-  "files": ["./src/index.ts"],
-  "exclude": ["node_modules"]
+  "files": ["./src/index.ts"]
 }
