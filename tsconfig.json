@@ -5,7 +5,7 @@
     "lib": ["ES2022", "DOM"],
     "allowJs": true,
     "checkJs": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "strict": true,
     "rootDir": "./src",
