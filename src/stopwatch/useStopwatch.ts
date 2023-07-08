@@ -32,7 +32,7 @@ interface StopwatchReturn {
  * - `reset` — A function that stops the stopwatch and resets it back to 0.
  * - `split` — A function that returns the current value.
  */
-export function useStopwatch(onStop: (time: number) => any): StopwatchReturn {
+export function useStopwatch(onStop: (time: number) => void): StopwatchReturn {
   const [stopwatch, setStopwatch] = useState<number>(0);
   const [runtime, setRuntime] = useState<number[]>([]);
   const [isRunning, setIsRunning] = useState<boolean>(false);
