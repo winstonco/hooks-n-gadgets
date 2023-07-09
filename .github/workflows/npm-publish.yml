@@ -20,7 +20,8 @@ jobs:
       - run: npm run lint
       - run: npm run build
       - name: Change package version to match release tag
-        run: "sed -i \"s/\\(\"version\": \"\\)[^\"]*/\\1$GITHUB_REF\/\" package.json"
+        run: |-
+          sed -i "s/\(\"version\": \"\)[^\"]*/\1$GITHUB_REF/" package.json
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
