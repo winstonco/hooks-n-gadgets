@@ -38,7 +38,7 @@ jobs:
           @microsoft/eslint-formatter-sarif@2.1.7
 
       - name: Run ESLint
-        run: |
+        run: |-
           echo "---- RUNNING ESLINT ----"
           npx eslint ./src --ext .js,.jsx,.ts,.tsx --format @microsoft/eslint-formatter-sarif --output-file results/eslint-results-imports.sarif
           echo "---- DONE RUNNING ESLINT ----"
