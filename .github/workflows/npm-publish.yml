@@ -18,8 +18,16 @@ jobs:
       - run: npm ci
 #     - run: npm test
       - run: npm run lint
-      - run: "sed -i \"s/\\(\"version\": \"\\)[^\"]*/\\1$GITHUB_REF/\" package.json"
       - run: npm build
+      - name: Change package version to match release tag
+        run: "sed -i \"s/\\(\"version\": \"\\)[^\"]*/\\1$GITHUB_REF/\" package.json"
+      - name: Push changes
+        run: |-
+          git config user.name "publish-to-npm"
+          git config user.email ""
+          git add ./package.json
+          git commit -m "update version"
+          git push
 
   publish-npm:
     needs: build
