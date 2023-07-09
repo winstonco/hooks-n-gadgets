@@ -22,14 +22,12 @@ jobs:
       - run: npm run build
       - name: Change package version to match release tag
         run: |-
-          sed -i 's/\("version": "\)[^"]*/\1$GITHUB_REF/' package.json
+          sed -i 's/\("version": "\)[^"]*/\1${{ github.ref }}/' package.json
       - name: Push changes
-        run: |-
-          git config user.name "publish-to-npm"
-          git config user.email ""
-          git add ./package.json
-          git commit -m "update version"
-          git push
+        uses: actions-js/push@v1.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
