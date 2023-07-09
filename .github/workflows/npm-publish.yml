@@ -5,7 +5,7 @@ name: Publish to npm
 
 on:
   release:
-    types: [created]
+    types: [released]
 
 jobs:
   build:
@@ -16,7 +16,10 @@ jobs:
         with:
           node-version: 18.x
       - run: npm ci
-#       - run: npm test
+#     - run: npm test
+      - run: npm run lint
+      - run: "sed -i \"s/\\(\"version\": \"\\)[^\"]*/\\1$GITHUB_REF/\" package.json"
+      - run: npm build
 
   publish-npm:
     needs: build

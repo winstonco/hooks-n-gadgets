@@ -1,6 +1,6 @@
 {
   "name": "@winstonco/horse",
-  "version": "0.0.1",
+  "version": "new_text",
   "contributors": [
     "Winston Co <winstonco@live.com>"
   ],
@@ -14,8 +14,7 @@
   "scripts": {
     "clean": "npx rimraf ./lib",
     "build": "npm run clean && tsc && rollup -c",
-    "lint": "npx eslint src/",
-    "ci": "npm run lint && npm run build"
+    "lint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx --max-warnings 0"
   },
   "keywords": [
     "react",
