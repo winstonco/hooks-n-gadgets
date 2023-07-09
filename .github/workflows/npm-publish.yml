@@ -22,7 +22,7 @@ jobs:
       - run: npm run build
       - name: Change package version to match release tag
         run: |-
-          sed -i 's/\("version": "\)[^"]*/\1${{ github.ref }}/' package.json
+          sed -i 's/\("version": "\)[^"]*/\1${{ github.ref_name }}/' package.json
       - name: Push changes
         uses: actions-js/push@v1.4
         with:
