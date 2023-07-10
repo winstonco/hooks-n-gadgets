@@ -17,19 +17,21 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-#     - run: npm test
+      - name: Get version
+        id: get_version
+        run: |-
+          version=$(grep -oP '(?<="version": ")[^"]*' package.json)
+          if [[ -z "$version" ]]; then
+          echo "Error: Version not found."
+          exit 1
+          fi
+          if [ $version != ${{ github.ref_name }} ]; then
+          echo "Npm package version does not match release number."
+          exit 1
+          fi
+      # - run: npm run test
       - run: npm run lint
       - run: npm run build
-      - name: Change package version to match release tag
-        run: |-
-          sed -i 's/\("version": "\)[^"]*/\1${{ github.ref_name }}/' package.json
-      - name: Push changes
-        run: |-
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json
-          git commit -m "update npm packge version"
-          git push --force
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
